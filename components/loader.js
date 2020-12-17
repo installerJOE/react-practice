@@ -4,7 +4,7 @@ function Loader(){
   const loadBlockStyle = {
     width: "100%",
     height: "100%",
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "rgba(242, 242, 242, 0.95)",
     position: "fixed"
   }
 
@@ -17,13 +17,8 @@ function Loader(){
           <div></div>
         </div><br/><br/>*/}
         <h1 style={{textAlign: 'center'}}>Please wait as the page loads...</h1><br/>
-        <div className="ring-loader"></div>   
-      </div> 
-         
-      
-
-            
-
+        <div className="ring-loader"></div>
+      </div>           
     </div>
   )
 }

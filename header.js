@@ -15,7 +15,8 @@ class Header extends Component{
         {
           id:"1",
           title: this.props.sign,
-          hyperlink:"sign"
+          hyperlink:"sign",
+          floatRight: true
         }
       ].map(list => <NavMenu key={list.id} menulist={list} handleMenuClick={this.props.handleMenu}/>)
  
@@ -30,7 +31,7 @@ class Header extends Component{
                 {menuBlock}
                 
                 {/*Sign-in/Sign-out menu list item */}
-                <span style={{float: "right"}}> {rightMenuList} </span>
+                {rightMenuList}
               </ul>
             </div>
           </div>

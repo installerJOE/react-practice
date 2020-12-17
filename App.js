@@ -8,7 +8,7 @@ import LibraryBlock from './library'
 import AboutUsBlock from './about_us'
 import DataBlock from './data'
 import SignInBlock from './sign'
-
+import Dashboard from './components/dashboard'
 
 
 class App extends Component {
@@ -17,12 +17,13 @@ class App extends Component {
     this.state = {
       loaderStat: true,
       isLoggedIn: false,
-      clickedLinkId: 1
+      clickedLinkId: 1,
+      showModal: false
     }
     this.handleMenuClick = this.handleMenuClick.bind(this)
   }
   
-  componentDidMount(){
+  componentDidMount(){  
     setTimeout(() => {
       this.setState(
         prev => {
@@ -31,9 +32,12 @@ class App extends Component {
           }
         }
       )
-    }, 10500)
+    }, 2500)
   }
- 
+  
+  componentDidUpdate(){
+    this.state.showModal && this.setState({showModal: false})
+  }
 
   handleMenuClick(link, id){
     if(link === "sign"){
@@ -44,6 +48,11 @@ class App extends Component {
           }
         }
       )
+    }
+    else if(link === "dashboard"){
+      this.setState({
+        showModal: true
+      })
     }
     else{
       this.setState(
@@ -90,6 +99,13 @@ class App extends Component {
           //render the About Us page
           this.state.clickedLinkId===5 && <AboutUsBlock/>
         }
+        {
+          //render the Dashboard page
+          this.state.clickedLinkId===6 && <Dashboard/>
+        }
+        <div>
+          <h1></h1>
+        </div>
       </div>
     );
   }
