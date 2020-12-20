@@ -19,10 +19,16 @@ function Modal(props){
             {props.modalmsg}
           </p>
           <p>
+           <input
+              onClick={() => props.handleModalOk()}
+              type="button"
+              value="Yes"
+              className="btn btn-default"
+            /> &nbsp; &nbsp;
             <input
               onClick={() => props.handleModalExit()}
               type="button"
-              value="Thanks"
+              value="No"
               className="btn btn-default"
             />
           </p>

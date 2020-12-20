@@ -6,12 +6,13 @@ class HomeBlock extends Component{
       float: "none",
       margin: "auto"
     } 
+    const introImgDiv = {
+      backgroundImage: "url('')"
+    }
     return(
       <div>
-        <div className="intro-div col-12">
-            <h1>
-              You are most highly welcome to the Department of Computer Engineering.
-            </h1>
+        {/**Container for opening image */}
+        <div className="intro-div col-12" style={introImgDiv}>            
         </div>
         <div style={mainBodyStyle} className="main-body-div col-lg-10 col-md-10 col-sm-10 col-xs-12">
           <h3>

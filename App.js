@@ -8,7 +8,9 @@ import LibraryBlock from './library'
 import AboutUsBlock from './about_us'
 import DataBlock from './data'
 import SignInBlock from './sign'
+import ModalControl from './components/modalCtrl'
 import Dashboard from './components/dashboard'
+
 
 
 class App extends Component {
@@ -35,24 +37,36 @@ class App extends Component {
     }, 2500)
   }
   
-  componentDidUpdate(){
-    this.state.showModal && this.setState({showModal: false})
+  /*
+  componentDidUpdate(prevProp, prevState, snapShot){
+    if(prevState.showModal){
+      alert(this.state.showModal)
+      /*this.setState({
+        showModal: true
+      })
+    }
+    else{
+      alert("This is not working yet " + this.state.showModal)
+    }
   }
-
+  */
+  
   handleMenuClick(link, id){
     if(link === "sign"){
       this.setState(
         prev=>{
           return{
-            isLoggedIn: !prev.isLoggedIn //toggle the log in status
+            isLoggedIn: !prev.isLoggedIn //toggle the log in status 
           }
         }
       )
     }
     else if(link === "dashboard"){
-      this.setState({
-        showModal: true
-      })
+      this.setState(prev=>{
+        return{
+          showModal: !prev.showModal
+        }
+      })    
     }
     else{
       this.setState(
@@ -62,6 +76,13 @@ class App extends Component {
           }
         }
       )
+      if(id==="6"){
+        this.setState(prev=>{
+          return{
+            showModal: !prev.showModal
+          }
+        })    
+      }
     }
   }
 
@@ -98,6 +119,10 @@ class App extends Component {
         {
           //render the About Us page
           this.state.clickedLinkId===5 && <AboutUsBlock/>
+        }
+        {
+          //render the Dashboard page
+          this.state.showModal && <ModalControl handleCloseModal={this.handleMenuClick}/>
         }
         {
           //render the Dashboard page
