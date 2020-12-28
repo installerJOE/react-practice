@@ -1,79 +1,83 @@
 body{
-    background-color:#c2c2c2;
-    width:100% !important;
-    height: 100% !important;
-    font-family: Arial, Helvetica, sans-serif;
+  background-color:#c2c2c2;
+  width:100% !important;
+  height: 100% !important;
+  font-family: Arial, Helvetica, sans-serif;
 }
 h1, h2, h3, h4, h5, h6{
-    padding:0px;
-    margin:0px;
+  padding:0px;
+  margin:0px;
 }
 *{
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 [class*="col-"]{
-    float: left
+  float: left
 }
 a{
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
 a:hover{
-    cursor:pointer;
+  cursor:pointer;
 }
 /*Styling of navigation and title bar*/
 .title-bar{
-    background-color:#fffffd;
-    color:#0098c7;
-    padding:20px 30px;
+  background-color:#fffffd;
+  color:#0098c7;
+  padding:20px 30px;
 }
 #div_navList{
-    background-color: #0098c7;
-    color:#fff;
+  background-color: #0098c7;
+  color:#fff;
 }
 .inline-ul{
-    list-style-type:none;
-    padding:0px;
-    margin:0px;
+  list-style-type:none;
+  padding:0px;
+  margin:0px;
 }
-.nav-bar li{
-    font-size:20px;
-    display: inline-block;
-    padding:20px 30px;
+.nav-links{
+  color:white;
+  font-size:20px;
+  display: inline-block;
+  padding:15px 30px;
+  margin:5px 2px;
+  transition:0.4s;
 }
-.nav-bar a:hover{
-    color:#d2d2d2  
+.nav-links:hover{
+  background-color:#fff ;
+  color: #0098c7;  
 }
 /*Progress bar infinite movement*/
 .div-loaderBar{
-    width:70%;
-    margin:auto;
-    margin-top:10%;
-    color:#0098c7;
+  width:70%;
+  margin:auto;
+  margin-top:10%;
+  color:#0098c7;
 }
 .loader-object{
-    position: relative;
-    margin:auto;
-    width:100%;
-    height: 30px;
-    background-color: #d2d2d2;
-    border-radius: 10px;
+  position: relative;
+  margin:auto;
+  width:100%;
+  height: 30px;
+  background-color: #d2d2d2;
+  border-radius: 10px;
 }
 .loader-object > div{
-    position:absolute;
-    width: 20%;
-    height:100%;
-    left:0%;
-    background-color: #0098c7;
-    border-radius: inherit;
-    animation: loader_myProgress 3s linear infinite;
+  position:absolute;
+  width: 20%;
+  height:100%;
+  left:0%;
+  background-color: #0098c7;
+  border-radius: inherit;
+  animation: loader_myProgress 3s linear infinite;
 }
 @keyframes loader_myProgress{
-    0%{
-        left:0%;
-    }
-    100%{
-        left:80%
-    }
+  0%{
+    left:0%;
+  }
+  100%{
+    left:80%
+  }
 }
 @-webkit-keyframes loader_myProgress{
     0%{
@@ -84,113 +88,136 @@ a:hover{
     }
 }
 .ring-loader{
-    border:5px solid #c2c2c2;
-    border-top: 5px solid #0098c7;
-    border-radius: 50%;
-    display: block;
-    width: 200px;
-    height:200px;
-    transform: rotate(45deg);
-    margin:auto;
-    animation: loaderRing 0.5s linear infinite
+  border:5px solid #c2c2c2;
+  border-top: 5px solid #0098c7;
+  border-radius: 50%;
+  display: block;
+  width: 200px;
+  height:200px;
+  transform: rotate(45deg);
+  margin:auto;
+  animation: loaderRing 0.5s linear infinite
 }
 @keyframes loaderRing{
-    0%{
-        transform: rotate(45deg);
-    }
-    100%{
-        transform: rotate(405deg);
-    }
+  0%{
+    transform: rotate(45deg);
+  }
+  100%{
+    transform: rotate(405deg);
+  }
 }
 
 
 .main-body-div{
-    background-color: #fff;
-    height:100%;
-    padding:40px 50px;
-    line-height: 2em;
+  background-color: #fff;
+  height:100%;
+  padding:40px 50px;
+  line-height: 2em;
 }
 
 .intro-div{
-    padding: 150px 30px;
-    text-align:center;
-    background-color: #e6f9ff;
-    font-weight: bold;
+  padding: 150px 30px;
+  text-align:center;
+  background-color: #e6f9ff;
+  font-weight: bold;
+  clear:left;
 }
-
-
-
+.intro-div ~ div{
+  clear:left
+}
+#div_introImg{
+  width: 100%;
+  align-items: center;
+}
 
 
 .btn{
-    padding:15px;
-    font-size:16px;
-    font-weight:bold;
-    font-family: Arial, Helvetica, sans-serif;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
+  padding:15px;
+  font-size:16px;
+  font-weight:bold;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
 }
 .btn:hover{
-    cursor: pointer;
+  cursor: pointer;
 }
 .btn-default{
-    background-color: #0098c7;
-    border: 1px solid #0098c7;
-    color:white;
+  background-color: #0098c7;
+  border: 1px solid #0098c7;
+  color:white;
 }
 .btn-default:hover{
-    background-color: rgba(0,0,0,0);
-    color:#0098c7;
+  background-color: rgba(0,0,0,0);
+  color:#0098c7;
 }
 .input-fields{
-    padding:10px;
-    border: 1px inset #0098c7;
-    width:85%;
+  padding:10px;
+  border: 1px inset #0098c7;
+  width:85%;
 }
 
 /*Styling of modal*/
 .div-modal{
-    height: 100%;
-    padding-top:10%;
-    position:fixed;
-    top:0px;
-    background-color: rgba(0,0,0,0.85);
+  height: 100%;
+  padding-top:10%;
+  position:fixed;
+  top:0px;
+  background-color: rgba(0,0,0,0.85);
 }
 .div-modal > div{
-    float:none;
-    width:50%;
-    margin:auto;
-    background-color:#fff;
-    box-shadow: 5px 10px 30px 5px rgba(0,0,0,0.6);
+  float:none;
+  width:50%;
+  margin:auto;
+  background-color:#fff;
+  box-shadow: 5px 10px 30px 5px rgba(0,0,0,0.6);
 }
 .modal-title-bar{
-    background-color: #d2d2d2;
-    color: #000;
+  background-color: #d2d2d2;
+  color: #000;
 }
 .modal-title-bar li{
-    display: inline-block;
-    padding:10px 15px;
-    font-size:25px;
+  display: inline-block;
+  padding:10px 15px;
+  font-size:25px;
 }
 .modal-close-btn{
-    background-color:#6e6e6e;
-    float:right;    
-    color: white;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
+  background-color:#6e6e6e;
+  float:right;    
+  color: white;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
 }
 .modal-close-btn:hover{
-    background-color:#8d8d8d
+  background-color:#8d8d8d
 }
 .modal-close-btn:hover{
-    cursor:pointer
+  cursor:pointer
 }
 .modal-msg-body{
-    line-height:2em;
-    padding:15px 30px;
-    font-size:20px;
+  line-height:2em;
+  padding:15px 30px;
+  font-size:20px;
 }
 
+
+
+.footer{
+  background-color: #00141a;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  clear:left;
+}
+.footer li{
+  padding: 10px;
+}
+.footer b{
+  color: #0098c7
+}
+.footer > div:last-child{
+  margin-top: 1.4em
+}
 
 
 

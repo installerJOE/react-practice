@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 
 class SignInBlock extends Component{
+  
+  handleSignExit(){
+    window.history.back();
+  }
+
   render(){
     return(
       <div className="div-modal col-12">
@@ -10,7 +15,7 @@ class SignInBlock extends Component{
               <li>
                 Sign In
               </li>
-              <li className="modal-close-btn" onClick={() => this.props.handleSignExit('sign')}>
+              <li className="modal-close-btn" onClick={this.handleSignExit}>
                 &times;
               </li>
             </ul>

@@ -2,37 +2,37 @@ const menuListArr = [
     {
         id: "1",
         title: "Home",
-        hyperlink:"home",
+        link:"/",
         floatRight: false
     },
     {
         id: "2",
         title: "Library",
-        hyperlink:"library",
+        link:"/library",
         floatRight: false
     },
     {
         id: "3",
         title: "Data",
-        hyperlink:"data",
+        link:"/data",
         floatRight: false
     },
     {
         id: "4",
         title: "Blog",
-        hyperlink:"blog",
+        link:"/blog",
         floatRight: false
     },
     {
         id: "5",
         title:  "About Us",
-        hyperlink:"about_us",
+        link:"/about-us",
         floatRight: false
     },
     {
       id:"6",
       title: "User",
-      hyperlink: "dashboard",
+      link: "/dashboard",
       floatRight: true
     }
 ]

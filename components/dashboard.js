@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 
 
-class Dashboard extends Component{
+class DashboardBlock extends Component{
   
   render(){
+    
     return(
       <div>
-        <div class="intro-div col-12">
+        <div className="intro-div col-12">
           <h1>I am a working Dashboard</h1>
           <h4>You are highly welcome to this awesome and fantastic opportunity.</h4>
         </div>
@@ -15,4 +16,4 @@ class Dashboard extends Component{
   }
 }
 
-export default Dashboard
+export default DashboardBlock

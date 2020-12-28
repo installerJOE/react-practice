@@ -78,4 +78,4 @@ const result = {
       }
 }
 
-export default result
+export default resulth

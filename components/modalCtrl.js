@@ -4,8 +4,8 @@ import Modal from './modal'
 
 
 class ModalControl extends Component{
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state={
       modalShow: true
     }

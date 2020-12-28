@@ -8,17 +8,17 @@ class Header extends Component{
   
     render(){   
       const menuBlock = menuListArr.map(
-        list => <NavMenu key={list.id} menulist={list} handleMenuClick={this.props.handleMenu}/>
+        navItem => <NavMenu key={navItem.id} menulist={navItem}/>
       ) 
       //list of all menus at the right side of the navbar 
       const rightMenuList = [
         {
           id:"1",
           title: this.props.sign,
-          hyperlink:"sign",
+          link:"/sign-in",
           floatRight: true
         }
-      ].map(list => <NavMenu key={list.id} menulist={list} handleMenuClick={this.props.handleMenu}/>)
+      ].map(navItem => <NavMenu key={navItem.id} menulist={navItem}/>)
  
         return(
           <div>

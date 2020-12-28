@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class BlogBlock extends Component{
+class Blog extends Component{
     render(){
         const mainBodyStyle = {
             float: "none",
@@ -57,4 +57,4 @@ class BlogBlock extends Component{
     }
 }
 
-export default BlogBlock
+export default Blog

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-class DataBlock extends Component{
+class Data extends Component{
   render(){ 
     return(
       <div>
@@ -15,4 +15,4 @@ class DataBlock extends Component{
   }
 }
 
-export default DataBlock
+export default Data

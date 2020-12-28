@@ -1,14 +1,16 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 class NavMenu extends Component{
   render(){
     return(
-      <li style={{float: this.props.menulist.floatRight && "right"}}
-        onClick={()=> this.props.handleMenuClick(this.props.menulist.hyperlink, this.props.menulist.id)}>
-        <a>
-          {this.props.menulist.title}
-        </a>
-      </li>    
+      <Link 
+        to={this.props.menulist.link} 
+        className="nav-links" 
+        style={{float: this.props.menulist.floatRight && "right"}}
+      >
+        {this.props.menulist.title}
+      </Link>
     )
   }
 }

@@ -2,14 +2,16 @@ import React, { Component } from 'react'
 import Loader from './components/loader'
 import './style.css'
 import Header from './header'
-import HomeBlock from './home'
-import BlogBlock from './blog'
-import LibraryBlock from './library'
-import AboutUsBlock from './about_us'
-import DataBlock from './data'
-import SignInBlock from './sign'
+import Footer from './footer'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Home from './home'
+import Blog from './blog'
+import Library from './library'
+import AboutUs from './about_us'
+import Data from './data'
+import SignIn from './sign'
 import ModalControl from './components/modalCtrl'
-import Dashboard from './components/dashboard'
+import DashboardBlock from './components/dashboard'
 
 
 
@@ -19,13 +21,29 @@ class App extends Component {
     this.state = {
       loaderStat: true,
       isLoggedIn: false,
-      clickedLinkId: 1,
-      showModal: false
+      showModal: false,
+      screenWidth: window.innerWidth,
+      jsonData: {}
     }
-    this.handleMenuClick = this.handleMenuClick.bind(this)
+    this.handleMenuLogIn = this.handleMenuLogIn.bind(this)
   }
   
   componentDidMount(){  
+    /*
+    fetch("https://jsonplaceholder.typicode.com/posts/1")
+      .then(response => response.json()) //convert fetched result to js object
+      //store result in json format to jsonData state and remove loader
+      .then(data => { 
+        this.setState({
+          loaderStat: false,
+          jsonData: data
+        })
+      })
+      .catch(error => {
+        console.error(error)
+      })
+    */
+    
     setTimeout(() => {
       this.setState(
         prev => {
@@ -34,56 +52,17 @@ class App extends Component {
           }
         }
       )
-    }, 2500)
+    }, 1500)
   }
   
-  /*
-  componentDidUpdate(prevProp, prevState, snapShot){
-    if(prevState.showModal){
-      alert(this.state.showModal)
-      /*this.setState({
-        showModal: true
-      })
-    }
-    else{
-      alert("This is not working yet " + this.state.showModal)
-    }
-  }
-  */
-  
-  handleMenuClick(link, id){
-    if(link === "sign"){
-      this.setState(
-        prev=>{
-          return{
-            isLoggedIn: !prev.isLoggedIn //toggle the log in status 
-          }
-        }
-      )
-    }
-    else if(link === "dashboard"){
-      this.setState(prev=>{
+  handleMenuLogIn(){
+    this.setState(
+      prev=>{
         return{
-          showModal: !prev.showModal
+          isLoggedIn: !prev.isLoggedIn //toggle the log in status 
         }
-      })    
-    }
-    else{
-      this.setState(
-        prev=>{
-          return{
-            clickedLinkId: (prev.clickedLinkId % prev.clickedLinkId) + Number(id)
-          }
-        }
-      )
-      if(id==="6"){
-        this.setState(prev=>{
-          return{
-            showModal: !prev.showModal
-          }
-        })    
       }
-    }
+    )
   }
 
   render(){    
@@ -91,47 +70,26 @@ class App extends Component {
     logStatus = this.state.isLoggedIn ? "Sign Out" : "Sign In"
     
     return (
-      <div className="App">
-        <Header sign={logStatus} handleMenu={this.handleMenuClick}/>
+      <Router>
+        
         {
           //bring in the loader
-          this.state.loaderStat && <Loader/>
-        }
-        {
-          //roger in the sign in block
-          this.state.isLoggedIn && <SignInBlock handleSignExit={this.handleMenuClick}/>
-        }
-        {
-          //render the home page
-          this.state.clickedLinkId===1 && <HomeBlock/>
-        }
-        {
-          //render the library page
-          this.state.clickedLinkId===2 && <LibraryBlock/>
-        }
-        { 
-          //render the data page
-          this.state.clickedLinkId===3 && <DataBlock/>
-        }
-        {  
-          //render the block page
-          this.state.clickedLinkId===4 && <BlogBlock/>}
-        {
-          //render the About Us page
-          this.state.clickedLinkId===5 && <AboutUsBlock/>
-        }
-        {
-          //render the Dashboard page
-          this.state.showModal && <ModalControl handleCloseModal={this.handleMenuClick}/>
-        }
-        {
-          //render the Dashboard page
-          this.state.clickedLinkId===6 && <Dashboard/>
-        }
-        <div>
-          <h1></h1>
-        </div>
-      </div>
+          this.state.loaderStat ? <Loader/> :
+          <div className="App">
+            <Header sign={logStatus} handleMenu={this.handleMenuClick}/>
+            
+            <Route path={"/"} exact component={Home}/>
+            <Route path={"/library"} component={Library}/>
+            <Route path={"/data"} component={Data}/>
+            <Route path={"/blog"} component={Blog}/>
+            <Route path={"/about-us"} component={AboutUs}/>
+            <Route path={"/dashboard"} component={DashboardBlock}/>
+            <Route path={"/sign-in"} component={SignIn}/>
+            
+            <Footer/>
+          </div>
+       }
+      </Router>
     );
   }
 }
