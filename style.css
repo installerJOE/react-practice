@@ -43,9 +43,9 @@ a:hover{
   margin:5px 2px;
   transition:0.4s;
 }
-.nav-links:hover{
-  background-color:#fff ;
-  color: #0098c7;  
+.active-menu, .nav-links:hover{
+  border-bottom: 2px solid #fff;
+  border-radius: 10px;
 }
 /*Progress bar infinite movement*/
 .div-loaderBar{
@@ -71,6 +71,7 @@ a:hover{
   border-radius: inherit;
   animation: loader_myProgress 3s linear infinite;
 }
+
 @keyframes loader_myProgress{
   0%{
     left:0%;

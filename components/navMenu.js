@@ -1,16 +1,17 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 class NavMenu extends Component{
   render(){
     return(
-      <Link 
+      <NavLink
+        exact activeClassName="active-menu" 
         to={this.props.menulist.link} 
         className="nav-links" 
         style={{float: this.props.menulist.floatRight && "right"}}
       >
         {this.props.menulist.title}
-      </Link>
+      </NavLink>
     )
   }
 }
